@@ -1,4 +1,4 @@
-let myLibrary = [];
+let myLibrary = [{"title": "bible", "author": "Jesus", "pages": "69420", "yn": "no"}];
 
 function Book(title, author, pages, yn) {
     this.title = title;
@@ -22,4 +22,5 @@ let test = new Book('a', 'b', 69, 'yes');
 
 
 
-console.log(test)
+console.log(test);
+console.log(myLibrary)
