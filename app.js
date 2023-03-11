@@ -13,24 +13,6 @@ let myLibrary = [{
     read: true
     }];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = () => `${title} by ${author}, ${pages} pages, ${read}`;
-}
-
-// a function to add book in document
-function addBook() {
-    
-}
-
-// a function to push user made book to myLibrary
-function pushBook() {
-    myLibrary.push()
-}
-
 // a function to append info of book to card
 function createBookElement(el, content, className) {
     const element = document.createElement(el);
@@ -64,6 +46,24 @@ function renderBooks() {
 }
 
 renderBooks();
+
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.info = () => `${title} by ${author}, ${pages} pages, ${read}`;
+}
+
+// a function to add book in document
+function addBook() {
+    
+}
+
+// a function to push user made book to myLibrary
+function pushBook() {
+    myLibrary.push()
+}
 
 // function Fiction() {};
 // Fiction.prototype = Object.create(Book.prototype);
