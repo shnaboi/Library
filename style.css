@@ -14,6 +14,10 @@
 
 .card {
     border: 2px dashed blue;
-    width: 100px;
-    height: 100px;
+    width: 500px
+}
+
+.book-info {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
 }
