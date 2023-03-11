@@ -1,18 +1,24 @@
-const BookDiv = document.getElementsByClassName('book-div')
+const BookDiv = document.querySelector('.book-div')
 
 let myLibrary = [{
     title: "bible", 
     author: "Jesus", 
     pages: "69420", 
-    yn: "no"
+    read: false
+    }, 
+    {
+    title: "book2", 
+    author: "BallsAss", 
+    pages: "12", 
+    read: true
     }];
 
-function Book(title, author, pages, yn) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.yn = yn;
-    this.info = () => `${title} by ${author}, ${pages} pages, ${yn}`;
+    this.read = read;
+    this.info = () => `${title} by ${author}, ${pages} pages, ${read}`;
 }
 
 function addBook() {
@@ -22,6 +28,11 @@ function pushBook() {
     myLibrary.push()
 }
 
+function renderBooks() {
+    myLibrary.map((title, index) => {
+        createBookItem(title, index)
+    })
+}
 
 
 // function Fiction() {};
