@@ -21,7 +21,7 @@ function createBookElement(el, content, className) {
     return element;
 }
 
-// a function to create dom object of book
+// a function to create dom object (card) of book
 function createBookItem(book, index) {
     const bookItem = document.createElement('div');
     bookItem.setAttribute('id', index)
