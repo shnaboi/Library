@@ -24,18 +24,16 @@ function createBookElement(el, content, className) {
 function createReadElement(bookItem, book) {
     let read = document.createElement('div');
     read.setAttribute('class', 'book-read');
-    read.appendChild(createBookElement('h1', "Read?", "book-read-title"));
+    read.appendChild(createBookElement('h1', "Read?", "book-info"));
     let input = document.createElement('input');
     input.setAttribute('type', 'checkbox')
     input.addEventListener('click', (e) => {
         if(e.target.checked) {
             bookItem.setAttribute('class', 'read-checked')
             book.read = true;
-            renderBooks();
         } else {
             bookItem.setAttribute('class', 'read-unchecked');
             book.read = false;
-            renderBooks();
         }
     });
     if (book.read) {

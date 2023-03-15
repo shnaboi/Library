@@ -14,7 +14,8 @@
 
 .card {
     border: 2px dashed blue;
-    width: 500px
+    width: 500px;
+    text-align: center;
 }
 
 .book-info {
