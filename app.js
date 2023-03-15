@@ -4,7 +4,7 @@ let myLibrary = [{
     title: "bible", 
     author: "Jesus", 
     pages: "69420", 
-    read: false
+    read: true
     }, 
     {
     title: "book2", 
@@ -21,6 +21,31 @@ function createBookElement(el, content, className) {
     return element;
 }
 
+function createReadElement(bookItem, book) {
+    let read = document.createElement('div');
+    read.setAttribute('class', 'book-read');
+    read.appendChild(createBookElement('h1', "Read?", "book-read-title"));
+    let input = document.createElement('input');
+    input.setAttribute('type', 'checkbox')
+    input.addEventListener('click', (e) => {
+        if(e.target.checked) {
+            bookItem.setAttribute('class', 'read-checked')
+            book.read = true;
+            renderBooks();
+        } else {
+            bookItem.setAttribute('class', 'read-unchecked');
+            book.read = false;
+            renderBooks();
+        }
+    });
+    if (book.read) {
+        input.checked = true;
+        bookItem.setAttribute('class', 'read-checked')
+    }
+    read.appendChild(input);
+    return read;
+}
+
 // a function to create dom object (card) of book
 function createBookItem(book, index) {
     const bookItem = document.createElement('div');
@@ -33,8 +58,9 @@ function createBookItem(book, index) {
         createBookElement('h1', `Author: ${book.author}`, "book-info"));
     bookItem.appendChild(
         createBookElement('h1', `Pages: ${book.pages}`, "book-info"));
-    bookItem.appendChild(
-        createBookElement('h1', `Read?: ${book.read}`, "book-info"));
+
+    bookItem.appendChild(createReadElement(bookItem, book));
+
     BookDiv.insertAdjacentElement("afterbegin", bookItem);
 }
 
