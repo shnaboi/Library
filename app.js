@@ -27,19 +27,19 @@ function createReadElement(bookItem, book) {
     read.appendChild(createBookElement('h1', "Read?", "book-info"));
     let input = document.createElement('input');
     input.setAttribute('type', 'checkbox')
-    input.addEventListener('click', (e) => {
-        if(e.target.checked) {
-            bookItem.setAttribute('class', 'read-checked')
-            book.read = true;
-        } else {
-            bookItem.setAttribute('class', 'read-unchecked');
-            book.read = false;
-        }
-    });
-    if (book.read) {
-        input.checked = true;
-        bookItem.setAttribute('class', 'read-checked')
-    }
+    // input.addEventListener('click', (e) => {
+    //     if(e.target.checked) {
+    //         bookItem.setAttribute('class', 'read-checked')
+    //         book.read = true;
+    //     } else {
+    //         bookItem.setAttribute('class', 'read-unchecked');
+    //         book.read = false;
+    //     }
+    // });
+    // if (book.read) {
+    //     input.checked = true;
+    //     bookItem.setAttribute('class', 'read-checked')
+    // }
     read.appendChild(input);
     return read;
 }

@@ -15,7 +15,11 @@
 .card {
     border: 2px dashed blue;
     width: 500px;
-    text-align: center;
+    text-align: left;
+}
+
+.book-read {
+    border: 1px solid red;
 }
 
 .book-info {
