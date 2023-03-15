@@ -21,6 +21,7 @@ function createBookElement(el, content, className) {
     return element;
 }
 
+// a function to create the read button 
 function createReadElement(bookItem, book) {
     let read = document.createElement('div');
     read.setAttribute('class', 'book-read');
@@ -58,6 +59,8 @@ function createBookItem(book, index) {
         createBookElement('h1', `Pages: ${book.pages}`, "book-info"));
 
     bookItem.appendChild(createReadElement(bookItem, book));
+
+    bookItem.appendChild(createBookElement('button', 'x', 'book-info-button'))
 
     BookDiv.insertAdjacentElement("afterbegin", bookItem);
 }
