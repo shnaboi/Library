@@ -62,6 +62,8 @@ function createBookItem(book, index) {
 
     bookItem.appendChild(createBookElement('button', 'x', 'book-info-button'))
 
+    bookItem.appendChild(createBookElement('button', 'edit', 'book-info-button'))
+
     BookDiv.insertAdjacentElement("afterbegin", bookItem);
 }
 

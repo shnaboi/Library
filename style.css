@@ -5,16 +5,17 @@
     text-align: center;
 }
 
-.card-div {
+.book-div {
+    display: flex;
+    flex-direction: row;
     border: 1px solid red;
     height: 500px;
-    display: flex;
     gap: 5px;
 }
 
 .card {
     border: 2px dashed blue;
-    width: 500px;
+    width: 400px;
     text-align: left;
 }
 
