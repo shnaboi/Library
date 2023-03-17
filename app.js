@@ -77,6 +77,12 @@ function createBookButtons(bookItem, book) {
     removeIcon.style.backgroundImage = "url('../SVG/book-remove.svg')";
     const editIcon = document.createElement('button');
     editIcon.style.backgroundImage = "url('../SVG/pencil.svg')";
+    removeIcon.addEventListener('click', () => {
+        console.log('remove')
+    })
+    editIcon.addEventListener('click', () => {
+        console.log('edit')
+    })
     bookButtons.appendChild(editIcon);
     bookButtons.appendChild(removeIcon);
     return bookButtons;
