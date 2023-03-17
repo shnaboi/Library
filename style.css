@@ -27,3 +27,10 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
 }
+
+.book-buttons button {
+    height: 3rem;
+    width: 3rem;
+    background-color: none;
+    border: none;
+}

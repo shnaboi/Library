@@ -60,11 +60,26 @@ function createBookItem(book, index) {
 
     bookItem.appendChild(createReadElement(bookItem, book));
 
-    bookItem.appendChild(createBookElement('button', 'x', 'book-info-button'))
+    // bookItem.appendChild(createBookElement('button', 'x', 'book-info-button'))
 
-    bookItem.appendChild(createBookElement('button', 'edit', 'book-info-button'))
+    // bookItem.appendChild(createBookElement('button', 'edit', 'book-info-button'))
+
+    bookItem.appendChild(createBookButtons());
 
     BookDiv.insertAdjacentElement("afterbegin", bookItem);
+}
+
+// a function to add edit & remove buttons with event listeners
+function createBookButtons(bookItem, book) {
+    const bookButtons = document.createElement('div');
+    bookButtons.setAttribute('class', 'book-buttons')
+    const removeIcon = document.createElement('button');
+    removeIcon.style.backgroundImage = "url('../SVG/book-remove.svg')";
+    const editIcon = document.createElement('button');
+    editIcon.style.backgroundImage = "url('../SVG/pencil.svg')";
+    bookButtons.appendChild(editIcon);
+    bookButtons.appendChild(removeIcon);
+    return bookButtons;
 }
 
 // a function to display books on document
