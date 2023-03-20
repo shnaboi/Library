@@ -1,5 +1,6 @@
 const BookDiv = document.querySelector('.book-div')
 
+// let myLibrary = [];
 let myLibrary = [{
     title: "bible", 
     author: "Jesus", 
@@ -12,6 +13,11 @@ let myLibrary = [{
     pages: "12", 
     read: true
     }];
+
+function addLocalStorage() {
+    myLibrary = JSON.parse(localStorage.getItem('library'));
+    saveLibrary();
+}
 
 // a function to append info of book to card
 function createBookElement(el, content, className) {
@@ -91,7 +97,7 @@ function createBookButtons(bookItem, book) {
 
 function deleteBook(index) {
     myLibrary.splice(index, 1)
-    renderBooks();
+    saveLibrary();
 }
 
 // a function to display books on document
@@ -102,7 +108,15 @@ function renderBooks() {
     })
 }
 
+// a function to save to local storage
+function saveLibrary() {
+    localStorage.setItem('library', JSON.stringify(myLibrary));
+    renderBooks();
+}
+
+// call renderBooks() or addLocalStorage() for testing
 renderBooks();
+// addLocalStorage();
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -112,20 +126,14 @@ function Book(title, author, pages, read) {
     this.info = () => `${title} by ${author}, ${pages} pages, ${read}`;
 }
 
-// a function to add book in document
-function addBook() {
-    
-}
-
 // a function to push user made book to myLibrary
-function pushBook() {
-    myLibrary.push()
-}
+// function pushBook() {
+//     myLibrary.push()
+// }
 
 // function Fiction() {};
 // Fiction.prototype = Object.create(Book.prototype);
 
 let test = new Book('a', 'b', 69, 'yes');
 
-console.log(test);
 console.log(myLibrary)
