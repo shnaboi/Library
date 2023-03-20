@@ -60,11 +60,11 @@ function createBookItem(book, index) {
 
     bookItem.appendChild(createReadElement(bookItem, book));
 
-    // bookItem.appendChild(createBookElement('button', 'x', 'book-info-button'))
-
-    // bookItem.appendChild(createBookElement('button', 'edit', 'book-info-button'))
-
     bookItem.appendChild(createBookButtons());
+
+    bookItem.querySelector('.delete').addEventListener('click', () => {
+        deleteBook(index);
+    })
 
     BookDiv.insertAdjacentElement("afterbegin", bookItem);
 }
@@ -75,6 +75,7 @@ function createBookButtons(bookItem, book) {
     bookButtons.setAttribute('class', 'book-buttons')
     const removeIcon = document.createElement('button');
     removeIcon.style.backgroundImage = "url('../SVG/book-remove.svg')";
+    removeIcon.setAttribute('class', 'delete')
     const editIcon = document.createElement('button');
     editIcon.style.backgroundImage = "url('../SVG/pencil.svg')";
     removeIcon.addEventListener('click', () => {
@@ -88,8 +89,14 @@ function createBookButtons(bookItem, book) {
     return bookButtons;
 }
 
+function deleteBook(index) {
+    myLibrary.splice(index, 1)
+    renderBooks();
+}
+
 // a function to display books on document
 function renderBooks() {
+    BookDiv.textContent = "";
     myLibrary.map((book, index) => {
         createBookItem(book, index)
     })
