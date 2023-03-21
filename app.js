@@ -3,6 +3,12 @@ const addBook = document.querySelector('.add-btn');
 const modal = document.querySelector('.modal');
 const modalClose = document.querySelector('.close');
 
+window.addEventListener('click', (e) => {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+})
+
 modalClose.addEventListener('click', () => {
     modal.style.display = 'none';
 })
