@@ -147,7 +147,9 @@ editBookForm.addEventListener('submit', (e) => {
     pushBook(newBook["book-title"], 
     newBook["book-author"], 
     newBook["book-pages"], 
-    newBook["book-read"])
+    newBook["book-read"]);
+    editBookForm.reset();
+    modal.style.display = 'none';
 })
 
 // a function to push user made book to myLibrary
