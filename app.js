@@ -1,4 +1,10 @@
-const BookDiv = document.querySelector('.book-div')
+const BookDiv = document.querySelector('.book-div');
+const addBook = document.querySelector('.add-btn');
+const modal = document.querySelector('.modal');
+
+addBook.addEventListener('click', () => {
+    modal.style.display = 'block';
+})
 
 // let myLibrary = [];
 let myLibrary = [{
