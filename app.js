@@ -31,10 +31,13 @@ let myLibrary = [{
     read: true
     }];
 
+// LOADS LOCOAL STORAGE ON PAGE LOAD
 function addLocalStorage() {
     myLibrary = JSON.parse(localStorage.getItem('library'));
     saveLibrary();
 }
+
+
 
 // a function to append info of book to card
 function createBookElement(el, content, className) {
@@ -125,32 +128,47 @@ function renderBooks() {
     })
 }
 
-// a function to save to local storage
+// SAVE TO LOCAL STORAGE AFTER ADDING / EDITING BOOK
 function saveLibrary() {
     localStorage.setItem('library', JSON.stringify(myLibrary));
     renderBooks();
 }
 
-// call renderBooks() or addLocalStorage() for testing
-renderBooks();
-// addLocalStorage();
+// Add book / edit book form 
+const editBookForm = document.querySelector('.edit-book-form');
+editBookForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const data = new FormData(e.target);
+    let newBook = {};
+    for (let [key, value] of data) {
+        newBook[key] = value;
+    }
+    pushBook(newBook["book-title"], 
+    newBook["book-author"], 
+    newBook["book-pages"], 
+    newBook["book-read"])
+})
+
+// a function to push user made book to myLibrary
+function pushBook(title, author, pages, read) {
+    console.log(myLibrary.push(new Book(title, author, pages, read)));
+    saveLibrary();
+}
 
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = () => `${title} by ${author}, ${pages} pages, ${read}`;
+    this.info = () => `${title} by ${author}, has ${pages} pages, ${read}`;
 }
 
-// a function to push user made book to myLibrary
-// function pushBook() {
-//     myLibrary.push()
-// }
+// call renderBooks() or addLocalStorage() for testing
+renderBooks();
+// addLocalStorage();
+
 
 // function Fiction() {};
 // Fiction.prototype = Object.create(Book.prototype);
 
-let test = new Book('a', 'b', 69, 'yes');
-
-console.log(myLibrary)
