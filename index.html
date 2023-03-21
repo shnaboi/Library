@@ -12,7 +12,8 @@
     <div class="header">
         <h1>My Library</h1>
     </div>
-    <button onclick="addBook()">Add New Book</button>
+    <main>
+        <button onclick="addBook()">Add New Book</button>
     <div class="popUp">
         <form class="form" action="/app.js" method="post">
             <label for="book_title">Book Title:</label>
@@ -32,6 +33,59 @@
     <div class="book-div">
 
         
+    </div>
+    </main>
+    <div class="modal" id="modal">
+        <div class="div modal-content">
+            <span class="close">&times;</span>
+            <div class="div modal-form">
+                <h1 class="form-title">Add / Edit Book</h1>
+                <form class="edit-book-form" action="" method="post">
+                    <div class="modal-input-field">
+                        <label for="book-title">Title:</label>
+                        <input 
+                            type="text"
+                            name="book-title"
+                            id="book-title"
+                            class="modal-form-input"
+                        >
+                    </div>
+                    <div class="modal-input-field">
+                        <label for="book-author">Author:</label>
+                        <input 
+                            type="text"
+                            name="book-author"
+                            id="book-author"
+                            class="modal-form-input"
+                        >
+                    </div>
+                    <div class="modal-input-field">
+                        <label for="book-pages">Pages:</label>
+                        <input 
+                            type="number"
+                            min="0"
+                            name="book-pages"
+                            id="book-pages"
+                            class="modal-form-input"
+                        >
+                    </div>
+                    <div class="modal-input-field">
+                        <span class="modal-read">Read?</span>
+                        <label class="container" for="">
+                            <input 
+                                type="checkbox" 
+                                name="book-read" 
+                                id="book-read"
+                                class="checkmark"
+                            >
+                        </label>
+                    </div>
+                    <div class="submit-modal-form">
+                        <button type="submit" class="btn form-add-button"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>
