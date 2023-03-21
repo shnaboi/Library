@@ -1,6 +1,11 @@
 const BookDiv = document.querySelector('.book-div');
 const addBook = document.querySelector('.add-btn');
 const modal = document.querySelector('.modal');
+const modalClose = document.querySelector('.close');
+
+modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+})
 
 addBook.addEventListener('click', () => {
     modal.style.display = 'block';
