@@ -15,7 +15,12 @@
 
 .card {
     border: 2px dashed blue;
-    width: 400px;
+    border-radius: 1rem;
+    background-color: rgb(255, 146, 146);
+    gap: 1rem;
+    margin: .5rem;
+    padding: .5rem;
+    width: 22rem;
     text-align: left;
     height: fit-content;
 }
@@ -55,8 +60,14 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.3); /* Black w/ opacity */
+  }
+
+  .close:hover {
+    color: #888;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: auto;
   }
 
   .modal-content {
@@ -72,10 +83,17 @@
   }
 
   .modal-form {
+    position: relative;
     display: flex;
     width: 100%;
+    margin: 1rem;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
+  }
+
+  .edit-book-form {
+    border: 1px solid red;
   }
 
 /*  */
