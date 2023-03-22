@@ -92,6 +92,10 @@ function createBookItem(book, index) {
         deleteBook(index);
     })
 
+    bookItem.querySelector('.edit-btn').addEventListener('click', () => {
+        editBook(index);
+    })
+
     BookDiv.insertAdjacentElement("afterbegin", bookItem);
 }
 
@@ -104,6 +108,7 @@ function createBookButtons(bookItem, book) {
     removeIcon.setAttribute('class', 'delete')
     const editIcon = document.createElement('button');
     editIcon.style.backgroundImage = "url('../SVG/pencil.svg')";
+    editIcon.setAttribute('class', 'edit-btn');
     removeIcon.addEventListener('click', () => {
         console.log('remove')
     })
@@ -118,6 +123,12 @@ function createBookButtons(bookItem, book) {
 function deleteBook(index) {
     myLibrary.splice(index, 1)
     saveLibrary();
+}
+
+function editBook(index) {
+    modal.style.display = 'block';
+    myLibrary.splice(index, 1);
+    myLibrary.push(index);
 }
 
 // a function to display books on document
@@ -142,8 +153,12 @@ editBookForm.addEventListener('submit', (e) => {
     const data = new FormData(e.target);
     let newBook = {};
     for (let [key, value] of data) {
+        // if (key === "book-read") {
+        //     newBook["book-read"] = true;
+        // }
         newBook[key] = value;
     }
+    console.log(newBook); 
     pushBook(newBook["book-title"], 
     newBook["book-author"], 
     newBook["book-pages"], 
@@ -167,8 +182,8 @@ function Book(title, author, pages, read) {
 }
 
 // call renderBooks() or addLocalStorage() for testing
-renderBooks();
-// addLocalStorage();
+// renderBooks();
+addLocalStorage();
 
 
 // function Fiction() {};
