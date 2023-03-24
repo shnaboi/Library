@@ -110,12 +110,6 @@ function createBookButtons(bookItem, book) {
     const editIcon = document.createElement('button');
     editIcon.style.backgroundImage = "url('../SVG/pencil.svg')";
     editIcon.setAttribute('class', 'edit-btn');
-    removeIcon.addEventListener('click', () => {
-        console.log('remove')
-    })
-    editIcon.addEventListener('click', () => {
-        console.log('edit')
-    })
     bookButtons.appendChild(editIcon);
     bookButtons.appendChild(removeIcon);
     return bookButtons;
@@ -131,8 +125,8 @@ function editBook(book) {
     modal.style.display = 'block';
     document.querySelector('.form-title').textContent = 'Edit Book';
     let editThis = myLibrary[book];
-    console.log(editThis);
-    console.log(editThis.title)
+    // console.log(editThis);
+    // console.log(editThis.title)
     document.querySelector('#book-title').value = editThis.title;
     document.querySelector('#book-author').value = editThis.author;
     document.querySelector('#book-pages').value = editThis.pages;
@@ -166,13 +160,7 @@ editBookForm.addEventListener('submit', (e) => {
         //     newBook["book-read"] = true;
         // }
         newBook[key] = value;
-    }
-    console.log(newBook); 
-    if (document.querySelector('.form-title').textContent === "Edit Book") {
-        let id = e.target.title;
-        console.log(id);
-        myLibrary.splice()
-    }
+    } 
     pushBook(newBook["book-title"], 
     newBook["book-author"], 
     newBook["book-pages"], 
@@ -183,7 +171,10 @@ editBookForm.addEventListener('submit', (e) => {
 
 // a function to push user made book to myLibrary
 function pushBook(title, author, pages, read) {
-    console.log(myLibrary.unshift(new Book(title, author, pages, read)));
+    // if (document.querySelector(.'form-title').textContent == 'Edit Book') {
+
+    // }
+    myLibrary.push(new Book(title, author, pages, read));
     saveLibrary();
 }
 
@@ -198,8 +189,3 @@ function Book(title, author, pages, read) {
 // call renderBooks() or addLocalStorage() for testing
 renderBooks();
 // addLocalStorage();
-
-
-// function Fiction() {};
-// Fiction.prototype = Object.create(Book.prototype);
-
