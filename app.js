@@ -97,6 +97,7 @@ function createBookItem(book, index) {
     })
 
     BookDiv.insertAdjacentElement("afterbegin", bookItem);
+    console.log(index);
 }
 
 // a function to add edit & remove buttons with event listeners
@@ -125,10 +126,18 @@ function deleteBook(index) {
     saveLibrary();
 }
 
-function editBook(index) {
+// CLICKING THE EDIT BUTTON
+function editBook(book) {
     modal.style.display = 'block';
-    myLibrary.splice(index, 1);
-    myLibrary.push(index);
+    document.querySelector('.form-title').textContent = 'Edit Book';
+    let editThis = myLibrary[book];
+    console.log(editThis);
+    console.log(editThis.title)
+    document.querySelector('#book-title').value = editThis.title;
+    document.querySelector('#book-author').value = editThis.author;
+    document.querySelector('#book-pages').value = editThis.pages;
+    document.querySelector('#book-read').checked = editThis.read;
+    myLibrary.splice(book, 1);
 }
 
 // a function to display books on document
@@ -159,6 +168,11 @@ editBookForm.addEventListener('submit', (e) => {
         newBook[key] = value;
     }
     console.log(newBook); 
+    if (document.querySelector('.form-title').textContent === "Edit Book") {
+        let id = e.target.title;
+        console.log(id);
+        myLibrary.splice()
+    }
     pushBook(newBook["book-title"], 
     newBook["book-author"], 
     newBook["book-pages"], 
@@ -169,7 +183,7 @@ editBookForm.addEventListener('submit', (e) => {
 
 // a function to push user made book to myLibrary
 function pushBook(title, author, pages, read) {
-    console.log(myLibrary.push(new Book(title, author, pages, read)));
+    console.log(myLibrary.unshift(new Book(title, author, pages, read)));
     saveLibrary();
 }
 
@@ -182,8 +196,8 @@ function Book(title, author, pages, read) {
 }
 
 // call renderBooks() or addLocalStorage() for testing
-// renderBooks();
-addLocalStorage();
+renderBooks();
+// addLocalStorage();
 
 
 // function Fiction() {};
