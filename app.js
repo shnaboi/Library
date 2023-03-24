@@ -22,13 +22,15 @@ let myLibrary = [{
     title: "bible", 
     author: "Jesus", 
     pages: "69420", 
-    read: true
+    read: true,
+    id: 1
     }, 
     {
     title: "book2", 
     author: "BallsAss", 
     pages: "12", 
-    read: true
+    read: true,
+    id: 2
     }];
 
 // LOADS LOCOAL STORAGE ON PAGE LOAD
@@ -146,6 +148,7 @@ function renderBooks() {
 function saveLibrary() {
     localStorage.setItem('library', JSON.stringify(myLibrary));
     renderBooks();
+    console.log(myLibrary.length)
 }
 
 // Add book / edit book form 
@@ -171,18 +174,20 @@ editBookForm.addEventListener('submit', (e) => {
 
 // a function to push user made book to myLibrary
 function pushBook(title, author, pages, read) {
-    // if (document.querySelector(.'form-title').textContent == 'Edit Book') {
-
-    // }
-    myLibrary.push(new Book(title, author, pages, read));
+    let id = myLibrary.length;
+    if (document.querySelector('.form-title').textContent == 'Edit Book') {
+        myLibrary.splice
+    }
+    myLibrary.push(new Book(title, author, pages, read, id));
     saveLibrary();
 }
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, id) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.id = myLibrary.length + 1;
     this.info = () => `${title} by ${author}, has ${pages} pages, ${read}`;
 }
 
