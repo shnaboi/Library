@@ -133,7 +133,7 @@ function editBook(book) {
     document.querySelector('#book-author').value = editThis.author;
     document.querySelector('#book-pages').value = editThis.pages;
     document.querySelector('#book-read').checked = editThis.read;
-    myLibrary.splice(book, 1);
+    myLibrary.splice(editThis.id - 1, 1);
 }
 
 // a function to display books on document
@@ -148,7 +148,7 @@ function renderBooks() {
 function saveLibrary() {
     localStorage.setItem('library', JSON.stringify(myLibrary));
     renderBooks();
-    console.log(myLibrary.length)
+    console.log(myLibrary)
 }
 
 // Add book / edit book form 
